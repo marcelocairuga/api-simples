@@ -1,0 +1,155 @@
+# ================================
+# STUDENTS HTTP TESTS
+# ================================
+
+# CREATE STUDENT - SUCCESS
+POST http://localhost/api/students
+Content-Type: application/json
+
+{
+  "name": "Alice Silva",
+  "email": "alice@example.com",
+  "courseId": 1,
+  "semester": 2
+}
+###
+
+# CREATE STUDENT - INVALID BODY (missing name)
+POST http://localhost/api/students
+Content-Type: application/json
+
+{
+  "email": "bob@example.com",
+  "courseId": 1,
+  "semester": 2
+}
+
+### 
+
+# CREATE STUDENT - DUPLICATE EMAIL
+POST http://localhost/api/students
+Content-Type: application/json
+
+{
+  "name": "Alice Silva 2",
+  "email": "alice@example.com",
+  "courseId": 1,
+  "semester": 1
+}
+
+### 
+
+# CREATE STUDENT - COURSE NOT FOUND
+POST http://localhost/api/students
+Content-Type: application/json
+
+{
+  "name": "Alice Silva 2",
+  "email": "alice2@example.com",
+  "courseId": 0,
+  "semester": 1
+}
+
+### 
+
+# GET ALL STUDENTS - SUCCESS
+GET http://localhost/api/students
+Accept: application/json
+
+### 
+
+# GET STUDENT BY ID - SUCCESS
+GET http://localhost/api/students/690a4385a4a15
+Accept: application/json
+
+### 
+
+# GET STUDENT BY ID - NOT FOUND
+GET http://localhost/api/students/690a4385a4a00
+Accept: application/json
+
+### 
+
+# GET STUDENT BY NAME - MATCHES
+GET http://localhost/api/students?name=ana
+Accept: application/json
+
+### 
+
+# GET STUDENT BY NAME - NO MATCHES
+GET http://localhost/api/students?name=pedro
+Accept: application/json
+
+### 
+
+# UPDATE STUDENT - SUCCESS
+PUT http://localhost/api/students/690a4385a4a15
+Content-Type: application/json
+
+{
+  "name": "Ana Silva Alterada",
+  "email": "ana.silva@email.com",
+  "courseId": 1,
+  "semester": 3
+}
+
+### 
+
+# UPDATE STUDENT - INVALID NAME
+PUT http://localhost/api/students/690a4385a4a15
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "ana.silva@email.com",
+  "courseId": 1,
+  "semester": 3
+}
+
+### 
+
+# PATCH STUDENT SEMESTER - SUCCESS
+PATCH http://localhost/api/students/690a4385a4a15
+Content-Type: application/json
+
+{
+  "semester": 4
+}
+
+###
+
+# PATCH STUDENT SEMESTER - SEMESTER GREATER THAN COURSE SEMESTERS
+PATCH http://localhost/api/students/690a4385a4a15
+Content-Type: application/json
+
+{
+  "semester": 20
+}
+
+### 
+
+# PATCH STUDENT SEMESTER - INVALID SEMESTER
+PATCH http://localhost/api/students/690a4385a4a15
+Content-Type: application/json
+
+{
+  "semester": "a"
+}
+
+### 
+
+# DELETE STUDENT - SUCCESS
+DELETE http://localhost/api/students/690a4385a4a16
+
+### 
+
+# DELETE STUDENT - NOT FOUND
+DELETE http://localhost/api/students/690a4385a4a00
+
+### 
+
+# METHOD NOT ALLOWED EXAMPLE
+POST http://localhost/api/students/690a4385a4a15
+Content-Type: application/json
+
+###

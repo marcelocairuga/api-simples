@@ -1,0 +1,117 @@
+# ================================
+# STUDENTS HTTP TESTS
+# ================================
+
+
+# GET / - API ROUTES
+GET http://localhost/api/
+
+###
+
+# GET ALL COURSES - SUCCESS
+GET http://localhost/api/courses
+Accept: application/json
+
+###
+
+# POST CREATE COURSE - SUCCESS
+POST http://localhost/api/courses
+Content-Type: application/json
+
+{
+  "name": "Engenharia de Software",
+  "semesters": 8
+}
+
+###
+
+# POST CREATE COURSE - INVALID BODY
+POST http://localhost/api/courses
+Content-Type: application/json
+
+{ 
+    "name": "Engenharia de Dados", 
+    semesters: 5 
+}
+
+###
+
+# POST CREATE COURSE - INVALID DATA
+POST http://localhost/api/courses
+Content-Type: application/json
+
+{
+  "name": "Engenharia de Software",
+  "semesters": "nine"
+}
+
+###
+
+# GET COURSE BY ID - SUCCESS
+GET http://localhost/api/courses/1
+Accept: application/json
+
+###
+
+# GET COURSE BY ID - NOT FOUND
+GET http://localhost/api/courses/0
+Accept: application/json
+
+###
+
+# GET COURSE BY NAME - MATCHES
+GET http://localhost/api/courses?name=sistemas
+Accept: application/json
+
+###
+
+# GET COURSE BY NAME - NO MATCHES
+GET http://localhost/api/courses?name=pedagogia
+Accept: application/json
+
+###
+
+# PUT UPDATE COURSE - SUCCESS
+PUT http://localhost/api/courses/1
+Content-Type: application/json
+
+{
+  "name": "Tecnologia em Sistemas para Internet",
+  "semesters": 6
+}
+
+###
+
+# PUT UPDATE COURSE - INVALID NAME
+PUT http://localhost/api/courses/1
+Content-Type: application/json
+
+{
+  "name": "ti",
+  "semesters": 6
+}
+
+###
+
+# DELETE COURSE - SUCCESS
+DELETE http://localhost/api/courses/4
+
+###
+
+# DELETE COURSE - COURSE HAS STUDENTS
+DELETE http://localhost/api/courses/2
+
+###
+
+# DELETE COURSE - NOT FOUND
+DELETE http://localhost/api/courses/0
+
+###
+
+# METHOD NOT ALLOWED EXAMPLE
+PATCH http://localhost/api/courses/1
+Content-Type: application/json
+
+{
+  "semesters": 5
+}
