@@ -3,7 +3,7 @@
 # ================================
 
 
-# GET / - API ROUTES
+# GET / - API ENDPOINTS
 GET http://localhost/api/
 
 ###
