@@ -42,7 +42,7 @@ Este é um exemplo de uso do padrão Contoller-Service-Repository para a constru
 - O script setup.php (em /src/Database) prepara o banco de dados e insere dados de exemplo;
 - Nos arquivos test_courses.http e test_students.http há exemplos requisições para testar as rotas e regras de negócio.
 
-### Rotas / Endpoint
+### Endpoint
 - GET /api/students
 - GET /api/students?name=name
 - POST /api/students
