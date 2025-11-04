@@ -29,7 +29,7 @@ switch ($request->getResource()) { //conforme o recurso solicitado
         break;
     case null:
         //para a raiz (rota /)
-        $routes = [
+        $endpoints = [
             "GET /api/students",
             "GET /api/students?name=name",
             "POST /api/students",
@@ -45,7 +45,7 @@ switch ($request->getResource()) { //conforme o recurso solicitado
             "DELETE /api/courses/:id",
             "GET /api/courses/:id/students",
         ];
-        Response::send(["endpoints" => $routes]);
+        Response::send(["endpoints" => $endpoints]);
         break;
     default:
         //para todos os demais casos, recurso não encontrado
