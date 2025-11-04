@@ -3,8 +3,8 @@ Este é um exemplo de uso do padrão Contoller-Service-Repository para a constru
 
 ### Entidades e Relações
 - Curso (nome e número de semestres);
-- Estudante (matrícula, nome, email, curso e semestre no curso);
-- Um estudante deve estar matriculado em um único curso.
+- Estudante (nome, email, curso e semestre no curso);
+- Um estudante deve estar matriculado em um curso.
 
 ### Requisitos
 - Deve ser possível criar, alterar e excluir um curso;
@@ -16,7 +16,7 @@ Este é um exemplo de uso do padrão Contoller-Service-Repository para a constru
 - Deve ser possível obter uma listagem de estudantes;
 - Deve ser possível filtrar os estudante pelo nome;
 - Deve ser possível atualizar o semestre do estudante;
-- O estudante é identificado por uma matrícula que deve ser gerada automaticamente pelo sistema;
+- O estudante é identificado por uma matrícula (id) que deve ser gerada automaticamente pelo sistema;
 
 ### Regras de Negócio
 - O nome de curso deve ter pelo menos 5 caracteres;
