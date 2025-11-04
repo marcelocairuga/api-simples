@@ -54,7 +54,8 @@ $courses = [
     ["name" => "Sistemas para Internet", "semesters" => 6],
     ["name" => "Ciência da Computação", "semesters" => 10],
     ["name" => "Análise de Sistemas", "semesters" => 8],
-    ["name" => "Ciência de Dados e Inteligência Artificial", "semesters" => 9]
+    ["name" => "Ciência de Dados e Inteligência Artificial", "semesters" => 9],
+    ["name" => "Técnico em Informática", "semesters" => 4]
 ];
 
 //cria um cojunto de estudantes de exemplo

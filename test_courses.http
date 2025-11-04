@@ -94,7 +94,7 @@ Content-Type: application/json
 ###
 
 # DELETE COURSE - SUCCESS
-DELETE http://localhost/api/courses/4
+DELETE http://localhost/api/courses/5
 
 ###
 
@@ -115,3 +115,23 @@ Content-Type: application/json
 {
   "semesters": 5
 }
+
+###
+
+# GET STUDENTS OF A COURSE - SUCCESS
+GET http://localhost/api/courses/2/students
+Accept: application/json
+
+###
+
+# GET STUDENTS OF A COURSE - NOT FOUND
+GET http://localhost/api/courses/0/students
+Accept: application/json
+
+###
+
+# GET STUDENTS OF A COURSE - NO STUDENTS
+GET http://localhost/api/courses/4/students
+Accept: application/json
+
+###
